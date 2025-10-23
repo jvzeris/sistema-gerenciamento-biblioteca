@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .container{
+            border: 2px solid #5e5d5d;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 20px 20px 70px rgba(0, 0, 0, 0.349);
+            background: transparent;
+            transition: .2s ease-in;
+
+        }
+        .container:hover{
+            filter: blur(0) grayscale(0%) brightness(1);
+            transition: .2s ease-out;
+        }
+</style>
+</head>
+<body class="bg-light d-flex align-items-center justify-content-center vh-100">
+
+    <div class="container" style="max-width: 380px;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-dark">Cadastrar Usuário</h2>
+        </div>
+
+        <div class="card-body">
+            <form action="{% url 'cadastro' %}" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="usuario" class="form-lable">Usuário</label>
+                    <input type="text" class="form-control" name="nome_usuario" placeholder="Digite seu usuário" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="for-label">E-mail</label>
+                    <input type="email" class="form-control" name="email" placeholder="Digite seu E-mail" required>
+                </div> 
+
+                <div class="mb-3">
+                    <label for="#" class="for-label">Senha</label>
+                    <input type="password" class="form-control" name="#" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                <br><br>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
